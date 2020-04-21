@@ -1,23 +1,28 @@
 import React from 'react';
 import './App.css';
-import 'typeface-roboto';
 import yourArticles from './your-articles.json';
 import missedArticles from './missed-articles.json';
-import ForYou from './ForYou';
-import MissedIt from './MissedIt';
+import Articles from './Articles';
 
 function App() {
   return (
     <div className="App">
       For You
+      <br></br>
+      <br></br>
       <div className="fycards">
-        {yourArticles.map((foryouObj) => {
-          return <ForYou {...foryouObj}/>
+        {yourArticles.map((articleObj, index) => {
+          articleObj.key = index;
+          return <Articles {...articleObj}/>
         })}
-      </div>
+      </div><br></br><br></br><br></br>
+      In Case You Missed It
+      <br></br>
+      <br></br>
       <div className="mcards">
-        {missedArticles.map((missedObj) => {
-          return <ForYou {...missedObj}/>
+        {missedArticles.map((articleObj, index) => {
+          articleObj.key = index;
+          return <Articles {...articleObj}/>
         })}
       </div>
 
